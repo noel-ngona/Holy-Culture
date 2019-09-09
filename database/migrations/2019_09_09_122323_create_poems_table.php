@@ -1,10 +1,10 @@
- <?php
+<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArtistsTable extends Migration
+class CreatePoemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateArtistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('artists', function (Blueprint $table) {
+        Schema::create('poems', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fname', 100);
-            $table->string('lname', 100);
-            $table->string('nickname', 100);
-            $table->mediumText('bio');
+            $table->string('name');
+            $table->date('release date');
+            $table->mediumText('body');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateArtistsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('artists');
+        Schema::dropIfExists('poems');
     }
 }
